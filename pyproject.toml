@@ -1,0 +1,36 @@
+[project]
+name = "autonomous-navigation"
+version = "0.1.0"
+description = "Autonomous 2D navigation research project"
+readme = "README.md"
+authors = [
+    { name = "Elian", email = "ebenois@ensc.fr" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+]
+
+[project.scripts]
+autonomous-navigation = "autonomous_navigation:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.3",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
